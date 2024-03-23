@@ -4,18 +4,18 @@ services:
     ports:
     - 8080:8080
     volumes:
-    - /volume1/docker/netbox:/etc/netbox/config:z,ro
-    - netbox-media-files:/opt/netbox/netbox/media:z,rw
-    - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
-    - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+    - /mnt/data/netbox/config:/etc/netbox/config:z,ro
+    - /mnt/data/netbox/media:/opt/netbox/netbox/media:z,rw
+    - /mnt/data/netbox/reports:/opt/netbox/netbox/reports:z,rw
+    - /mnt/data/netbox/scripts:/opt/netbox/netbox/scripts:z,rw
     healthcheck:
       retries: 15
   netbox-worker:
     volumes:
-    - /volume1/docker/netbox:/etc/netbox/config:z,ro
-    - netbox-media-files:/opt/netbox/netbox/media:z,rw
-    - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
-    - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+    - /mnt/data/netbox/config:/etc/netbox/config:z,ro
+    - /mnt/data/netbox/media:/opt/netbox/netbox/media:z,rw
+    - /mnt/data/netbox/reports:/opt/netbox/netbox/reports:z,rw
+    - /mnt/data/netbox/scripts:/opt/netbox/netbox/scripts:z,rw
   netbox-housekeeping:
     volumes:
     - /mnt/data/netbox/config:/etc/netbox/config:z,ro
